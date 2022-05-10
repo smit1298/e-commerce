@@ -1,0 +1,1 @@
+import React from "reac"var element = <div>Hello world</div>
