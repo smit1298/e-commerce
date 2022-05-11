@@ -5,13 +5,7 @@ export default class MainContent extends Component {
     pageTitle: "Customers",
     customersCount: 5,
     customers: [
-      {
-        id: 1,
-        name: "Scot",
-        phone: "123-456",
-        address: { city: "New Delhi" },
-        photo: "https://picsum.photos/id/1019/60"
-      },
+      { id: 1, name: "scot", phone: "123-456", address: { city: "New Delhi" } },
       {
         id: 2,
         name: "Jones",
@@ -26,20 +20,10 @@ export default class MainContent extends Component {
         address: { city: "New London" },
         photo: "https://picsum.photos/id/1011/60"
       },
-      {
-        id: 4,
-        name: "John",
-        phone: null,
-        address: { city: "New York" },
-        photo: "https://picsum.photos/id/1012/60"
-      },
-      {
-        id: 5,
-        name: "James",
-        phone: null,
-        address: { city: "New Berlin" },
-        photo: "https://picsum.photos/id/1013/60"
-      }
+      { id: 4, name: "John", phone: null, address: { city: "New York" },
+      photo: "https://picsum.photos/id/1010/60" },
+      { id: 5, name: "James", phone: null, address: { city: "New Berlin" },
+      photo: "https://picsum.photos/id/1010/60" }
     ]
   };
 
@@ -57,7 +41,6 @@ export default class MainContent extends Component {
           <thead>
             <tr>
               <th>#</th>
-              <th>Photo</th>
               <th>Customer Name</th>
               <th>Phone</th>
               <th>City</th>
@@ -86,19 +69,7 @@ export default class MainContent extends Component {
       return (
         <tr key={cust.id}>
           <td>{cust.id}</td>
-          <td>
-            <img src={cust.photo} alt="customer" />
-            <div>
-              <button
-                className="btn btn-secondary"
-                onClick={() => {
-                  this.onChangePictureClick(cust);
-                }}
-              >
-                Change Picture
-              </button>
-            </div>
-          </td>
+          <td><img src={cust.photo} alt="customer"/></td>
           <td>{cust.name}</td>
           <td> {this.getPhoneToRender(cust.phone)}</td>
           <td>{cust.address.city}</td>
@@ -106,9 +77,4 @@ export default class MainContent extends Component {
       );
     });
   };
-
-onChangePictureClick = (cust) => {
-    console.log(cust);
-}
-
 }

@@ -89,26 +89,16 @@ export default class MainContent extends Component {
           <td>
             <img src={cust.photo} alt="customer" />
             <div>
-              <button
-                className="btn btn-secondary"
-                onClick={() => {
-                  this.onChangePictureClick(cust);
-                }}
-              >
-                Change Picture
-              </button>
+                <button className="btn btn-secondary" onClick={() => {
+                    this.onChangePicture
+                }}>Change Picture</button>
             </div>
           </td>
-          <td>{cust.name}</td>
+          <td >{cust.name}</td>
           <td> {this.getPhoneToRender(cust.phone)}</td>
           <td>{cust.address.city}</td>
         </tr>
       );
     });
   };
-
-onChangePictureClick = (cust) => {
-    console.log(cust);
-}
-
 }

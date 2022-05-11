@@ -5,13 +5,7 @@ export default class MainContent extends Component {
     pageTitle: "Customers",
     customersCount: 5,
     customers: [
-      {
-        id: 1,
-        name: "Scot",
-        phone: "123-456",
-        address: { city: "New Delhi" },
-        photo: "https://picsum.photos/id/1019/60"
-      },
+      { id: 1, name: "scot", phone: "123-456", address: { city: "New Delhi" } },
       {
         id: 2,
         name: "Jones",
@@ -57,7 +51,6 @@ export default class MainContent extends Component {
           <thead>
             <tr>
               <th>#</th>
-              <th>Photo</th>
               <th>Customer Name</th>
               <th>Phone</th>
               <th>City</th>
@@ -88,27 +81,12 @@ export default class MainContent extends Component {
           <td>{cust.id}</td>
           <td>
             <img src={cust.photo} alt="customer" />
-            <div>
-              <button
-                className="btn btn-secondary"
-                onClick={() => {
-                  this.onChangePictureClick(cust);
-                }}
-              >
-                Change Picture
-              </button>
-            </div>
           </td>
-          <td>{cust.name}</td>
+          <td style={{backgroundColor: (cust.name.startsWith('s'))?'green':'red'}}(property)>{cust.name}</td>
           <td> {this.getPhoneToRender(cust.phone)}</td>
           <td>{cust.address.city}</td>
         </tr>
       );
     });
   };
-
-onChangePictureClick = (cust) => {
-    console.log(cust);
-}
-
 }

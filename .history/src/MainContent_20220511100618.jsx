@@ -7,7 +7,7 @@ export default class MainContent extends Component {
     customers: [
       {
         id: 1,
-        name: "Scot",
+        name: "scot",
         phone: "123-456",
         address: { city: "New Delhi" },
         photo: "https://picsum.photos/id/1019/60"
@@ -42,7 +42,11 @@ export default class MainContent extends Component {
       }
     ]
   };
-
+customerNameStyle =() =>{
+if(custName.startsWith("s"))return{backgroundColor: "green"};
+else if(custName.startsWith("j"))return{backgroundColor:"red"};
+else return{};
+}
   render() {
     return (
       <div>
@@ -88,27 +92,16 @@ export default class MainContent extends Component {
           <td>{cust.id}</td>
           <td>
             <img src={cust.photo} alt="customer" />
-            <div>
-              <button
-                className="btn btn-secondary"
-                onClick={() => {
-                  this.onChangePictureClick(cust);
-                }}
-              >
-                Change Picture
-              </button>
-            </div>
           </td>
-          <td>{cust.name}</td>
+          <td
+            style={this.}
+          >
+            {cust.name}
+          </td>
           <td> {this.getPhoneToRender(cust.phone)}</td>
           <td>{cust.address.city}</td>
         </tr>
       );
     });
   };
-
-onChangePictureClick = (cust) => {
-    console.log(cust);
-}
-
 }

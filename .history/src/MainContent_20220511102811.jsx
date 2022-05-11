@@ -107,8 +107,5 @@ export default class MainContent extends Component {
     });
   };
 
-onChangePictureClick = (cust) => {
-    console.log(cust);
-}
-
+  
 }
